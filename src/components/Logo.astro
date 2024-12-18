@@ -8,7 +8,7 @@ interface LogoProps {
 const { className = "", imageClassName = "", textClassName = "" } = Astro.props as LogoProps;
 ---
 
-<div class={`flex items-center ${className}`}>
+<div class={`flex justify-center items-center ${className}`}> 
     <img 
         src="/logo.png" 
         alt="RideSense Logo" 
