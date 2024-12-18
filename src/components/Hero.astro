@@ -1,0 +1,35 @@
+---
+import { ArrowRight } from 'lucide-astro';
+import Logo from './Logo.astro';
+---
+
+<div class="relative min-h-screen">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0">
+        <img 
+            src="/hero-bg.jpg" 
+            alt="Motorcycle journey through scenic roads" 
+            class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-blue-800/80 to-green-900/90"></div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-4 py-32 text-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <Logo 
+                class="justify-center mb-6"
+                imageClassName="w-16 h-16"
+                textClassName="text-4xl md:text-6xl"
+            />
+            <h2 class="text-2xl md:text-4xl font-bold mb-6 font-['Satoshi']">Ride Beyond Roads</h2>
+            <p class="text-xl md:text-2xl mb-8 font-['Nunito Sans'] text-gray-200">
+                Your Ultimate Motorcycle Ride Companion. Plan scenic, thrilling, or tranquil rides with routes tailored to your style.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="px-8 py-3 bg-green-600 hover:bg-green-700 rounded-full font-semibold flex items-center justify-center transition-all">
+                    Join Beta Testing <ArrowRight class="ml-2 w-5 h-5" />
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

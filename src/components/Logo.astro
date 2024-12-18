@@ -1,0 +1,20 @@
+---
+interface LogoProps {
+    className?: string;
+    imageClassName?: string;
+    textClassName?: string;
+}
+
+const { className = "", imageClassName = "", textClassName = "" } = Astro.props as LogoProps;
+---
+
+<div class={`flex items-center ${className}`}>
+    <img 
+        src="/logo.png" 
+        alt="RideSense Logo" 
+        class={`mr-2 ${imageClassName}`}
+    />
+    <span class={`font-['Satoshi'] font-bold ${textClassName}`}>
+        RideSense
+    </span>
+</div>

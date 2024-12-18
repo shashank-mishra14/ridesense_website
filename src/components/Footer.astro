@@ -1,0 +1,46 @@
+---
+import { Instagram } from 'lucide-astro';
+import Logo from './Logo.astro';
+---
+
+<footer class="bg-gray-900 text-gray-300">
+    <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <Logo 
+                class="mb-4 md:mb-0"
+                imageClassName="w-8 h-8"
+                textClassName="text-2xl text-white"
+            />
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-blue-400 transition-colors">
+                    <Instagram class="w-6 h-6" />
+                </a>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-white font-bold mb-4 font-['Satoshi']">Download</h4>
+                    <div class="space-y-2 font-['Nunito Sans']">
+                        <a href="#" class="block hover:text-blue-400">App Store</a>
+                        <a href="#" class="block hover:text-blue-400">Play Store</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 font-['Satoshi']">Legal</h4>
+                    <div class="space-y-2 font-['Nunito Sans']">
+                        <a href="#" class="block hover:text-blue-400">Privacy Policy</a>
+                        <a href="#" class="block hover:text-blue-400">Terms & Conditions</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 font-['Satoshi']">Contact</h4>
+                    <p class="font-['Nunito Sans']">Join our community of passionate riders</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8 pt-8 border-t border-gray-800 font-['Nunito Sans']">
+            <p>&copy; {new Date().getFullYear()} RideSense. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

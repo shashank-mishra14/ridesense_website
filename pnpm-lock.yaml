@@ -14,6 +14,12 @@ importers:
       astro:
         specifier: ^5.0.9
         version: 5.0.9(jiti@1.21.7)(rollup@4.28.1)(typescript@5.7.2)(yaml@2.6.1)
+      lucide-astro:
+        specifier: ^0.468.0
+        version: 0.468.0(astro@5.0.9(jiti@1.21.7)(rollup@4.28.1)(typescript@5.7.2)(yaml@2.6.1))
+      lucide-react:
+        specifier: ^0.468.0
+        version: 0.468.0(react@19.0.0)
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
@@ -1118,6 +1124,16 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
+  lucide-astro@0.468.0:
+    resolution: {integrity: sha512-jl4jmNX9KUje4sDYvdwZ6EjYQ200s+5+JZsNu/vQqINxqVO/Kn8GvPlFu2T7dvfDW6pP63J8hRwspnXF6RiGVA==}
+    peerDependencies:
+      astro: '>=2.7.1'
+
+  lucide-react@0.468.0:
+    resolution: {integrity: sha512-6koYRhnM2N0GGZIdXzSeiNwguv1gt/FAjZOiPl76roBi3xKEXa4WmfpxgQwTTL4KipXjefrnf3oV4IsYhi4JFA==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
+
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
@@ -1443,6 +1459,10 @@ packages:
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
+
+  react@19.0.0:
+    resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
+    engines: {node: '>=0.10.0'}
 
   read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -2849,6 +2869,14 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
+  lucide-astro@0.468.0(astro@5.0.9(jiti@1.21.7)(rollup@4.28.1)(typescript@5.7.2)(yaml@2.6.1)):
+    dependencies:
+      astro: 5.0.9(jiti@1.21.7)(rollup@4.28.1)(typescript@5.7.2)(yaml@2.6.1)
+
+  lucide-react@0.468.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -3335,6 +3363,8 @@ snapshots:
   property-information@6.5.0: {}
 
   queue-microtask@1.2.3: {}
+
+  react@19.0.0: {}
 
   read-cache@1.0.0:
     dependencies:
