@@ -1,0 +1,166 @@
+---
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import Logo from "./Logo.astro";
+
+const menuitems = [
+  { href: "/about", label: "About us" },
+  { href: "/features", label: "Features" },
+  { href: "/#contact", label: "Contact Us" },
+  { href: "/faqs", label: "FAQS" },
+];
+
+const navButton = {
+  href: "https://github.com/manulthanura/Positivus",
+  label: "Sign up for Beta Testing",
+};
+---
+
+<div class="mt-20">
+  <nav
+    class="w-full top-0 left-0 z-50 fixed bg-white/80 backdrop-blur-md border-b border-gray-100"
+  >
+    <header
+      class="flex flex-col lg:flex-row justify-between items-center my-5 px-6 md:px-32"
+    >
+      <Astronav>
+        <div class="flex w-full lg:w-auto items-center justify-between">
+          <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <Logo />
+          </a>
+          <div class="block lg:hidden">
+            <div
+              id="menu-icon"
+              class="w-8 h-8 text-gray-800 cursor-pointer transition-colors duration-300"
+            >
+              <svg
+                id="open-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                class="w-8 h-8"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+              <svg
+                id="close-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                class="w-8 h-8 hidden"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <nav
+          class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0"
+          id="menu-items"
+        >
+          <ul
+            class="text-lg font-['Satoshi'] flex flex-col p-4 lg:p-0 mt-4 rounded-lg lg:flex-row lg:space-x-8 lg:mt-0"
+          >
+            {
+              menuitems.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    class="nav-link block py-2 px-3 text-gray-800 rounded lg:bg-transparent lg:p-0 hover:text-blue-600 transition-colors duration-300"
+                    data-close-menu="true"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+            <div class="lg:hidden flex items-center justify-center mt-3 gap-4">
+              <a
+                class="mobile-nav-link px-9 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 text-white transition-all duration-300 shadow-lg hover:shadow-blue-200"
+                href={navButton.href}
+                data-close-menu="true"
+              >
+                <span
+                  class="text-center text-xl font-normal font-sans leading-7"
+                  >{navButton.label}</span
+                >
+              </a>
+            </div>
+          </ul>
+        </nav>
+      </Astronav>
+
+      <div>
+        <div class="hidden lg:flex items-center gap-4">
+          <a
+            class="px-9 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 text-white transition-all duration-300 shadow-lg hover:shadow-blue-200"
+            href={navButton.href}
+          >
+            <span class="text-center text-xl font-normal font-sans leading-7"
+              >{navButton.label}</span
+            >
+          </a>
+        </div>
+      </div>
+    </header>
+  </nav>
+</div>
+
+<style>
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, #2563eb, #60a5fa);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    .nav-link::after {
+      display: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  const menuIcon = document.getElementById("menu-icon");
+  const openIcon = document.getElementById("open-icon");
+  const closeIcon = document.getElementById("close-icon");
+  const menuItems = document.getElementById("menu-items");
+  const closeMenuItems = document.querySelectorAll('[data-close-menu="true"]');
+
+  menuIcon.addEventListener("click", () => {
+    menuItems.classList.toggle("hidden");
+    openIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+  });
+
+  closeMenuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      menuItems.classList.add("hidden");
+      openIcon.classList.remove("hidden");
+      closeIcon.classList.add("hidden");
+    });
+  });
+</script>
