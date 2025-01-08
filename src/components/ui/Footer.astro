@@ -13,10 +13,10 @@ const logos = [
 ];
 
 const links = [
-  { name: "About us", href: "#about" },
+  { name: "About us", href: "/about" },
   { name: "Services", href: "#services" },
   { name: "Use Cases", href: "#cases" },
-  { name: "Pricing", href: "#Testimonials" },
+  { name: "Pricing", href: "Testimonials" },
   { name: "FAQs", href: "/faqs" },
 ];
 ---
@@ -32,7 +32,8 @@ const links = [
         >
           <picture>
             <a href="#home">
-              <Image src={Logo} alt="Logo for Kreatif Brand" />
+              
+              <span class="text-6xl">RideSense</span>
             </a>
           </picture>
           <ul class="flex flex-col sm:flex-row gap-5">
@@ -72,10 +73,10 @@ const links = [
             <h3 class="mb-5 text-center md:text-left text-2xl text-green">Contact us</h3>
             <div class="flex flex-col justify-between gap-4">
               <span> Email: help@ridesense.in</span>
-              <span> Phone: +123 456 789 </span>
-              <span class="lg:w-3/4">
+              <span> Reach us on Whatsapp : +91 7975307375 </span>
+              <!-- <span class="lg:w-3/4">
                 Address: 1234 Street Name, City Name, Country Name
-              </span>
+              </span> -->
             </div>
           </div>
           <div class="flex-grow my-10 lg:my-0 lg:ml-12">

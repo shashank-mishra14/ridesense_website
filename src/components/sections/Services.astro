@@ -7,80 +7,83 @@ import c1 from "../../assets/pics/card-pic1.png";
 import c2 from "../../assets/pics/card-pic2.png";
 import c3 from "../../assets/pics/card-pic3.png";
 import c4 from "../../assets/pics/card-pic4.png";
-import c5 from "../../assets/pics/card-pic5.png";
-import c6 from "../../assets/pics/card-pic6.png";
 
-const cards = [
+const sections = [
   {
-    index: 1,
-    titleTop: "Search Engine",
-    titleBottom: "Optimization",
+    titleTop: "Personalised",
+    titleBottom: "Route Planning",
+    description: [
+      "Plan your rides effortlessly in just two minutes.",
+      "Discover destinations tailored to your preferences.",
+      "Select routes that match your taste.",
+      "Enjoy simplified and perfect adventure planning.",
+    ],
     img: c1,
-    alt: "SEO",
-    link: "https://google.com",
+    alt: "Personalised Route Planning",
   },
   {
-    index: 2,
-    titleTop: "Pay-per-click",
-    titleBottom: "advertising",
+    titleTop: "Seamless",
+    titleBottom: "Group Ride Coordination",
+    description: [
+      "Create comprehensive ride plans in one place.",
+      "Add riders and send invites to your friends.",
+      "Provide an overview of the ride plan.",
+      "Dynamically replan during the ride to adapt to changes.",
+    ],
     img: c2,
-    alt: "SEO",
-    link: "https://google.com",
+    alt: "Group Ride Coordination",
   },
   {
-    index: 3,
-    titleTop: "Social Media",
-    titleBottom: "Marketing",
+    titleTop: "Live Location",
+    titleBottom: "Sharing",
+    description: [
+      "Keep your group connected with real-time location sharing.",
+      "Eliminate the worry of members taking wrong turns.",
+      "Ensure no rider is left behind.",
+      "Track co-riders as they finish their journey safely.",
+    ],
     img: c3,
-    alt: "SEO",
-    link: "https://google.com",
+    alt: "Live Location Sharing",
   },
   {
-    index: 1,
-    titleTop: "Email",
-    titleBottom: "Marketing",
+    titleTop: "Ride",
+    titleBottom: "Memories",
+    description: [
+      "Maintain a detailed ride log with maps and routes.",
+      "Include key statistics for each ride.",
+      "Easily share ride photos with your co-riders.",
+      "Create a collective memory of your adventures.",
+    ],
     img: c4,
-    alt: "SEO",
-    link: "https://google.com",
-  },
-  {
-    index: 2,
-    titleTop: "Content",
-    titleBottom: "Creation",
-    img: c5,
-    alt: "SEO",
-    link: "https://google.com",
-  },
-  {
-    index: 3,
-    titleTop: "Analytics and",
-    titleBottom: "Tracking",
-    img: c6,
-    alt: "SEO",
-    link: "https://google.com",
+    alt: "Ride Memories",
   },
 ];
 
-const description =
-  "At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include";
+const description = "Explore our advanced features for effortless ride planning and coordination.";
 ---
 
 <Section id="services">
   <div class="mt-[140px] mb-5">
-    <SectionTitle sectionTitle="Services" description={description} />
-    <div class="grid lg:grid-cols-2 lg:grid-rows-3 gap-10">
-      {
-        cards.map((card) => (
+    <SectionTitle sectionTitle="Our Features" description={description} />
+    <div class="flex flex-col gap-14">
+      {sections.map((section, index) => (
+        <div class={`grid lg:grid-cols-2 items-center gap-10`}>
+          {/* Text Card */}
           <ServiceCard
-            index={card.index}
-            titleTop={card.titleTop}
-            titleBottom={card.titleBottom}
-            img={card.img}
-            alt={card.alt}
-            link={card.link}
+            index={1}
+            titleTop={section.titleTop}
+            titleBottom={section.titleBottom}
+            description={section.description}
           />
-        ))
-      }
+
+          {/* Image Card */}
+          <ServiceCard
+            index={2}
+            img={section.img}
+            alt={section.alt}
+          />
+        </div>
+      ))}
     </div>
   </div>
 </Section>
