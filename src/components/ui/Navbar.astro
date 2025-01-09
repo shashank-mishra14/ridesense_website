@@ -2,14 +2,14 @@
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
-  { href: '/about', label: 'About us' },
-  { href: '/#services', label: 'Services' },
-  { href: '/#cases', label: 'Use Cases' },
-  { href: '/pricing', label: 'Pricing' },
+  // { href: '/about', label: 'About us' },
+  { href: '/#features', label: 'Features' },
+  { href: '/#contact', label: 'Contact Us' },
+  // { href: '/pricing', label: 'Pricing' },
   { href: '/faqs', label: 'FAQs'},
 ];
 
-const navButton = { href: 'https://github.com/manulthanura/Positivus', label: 'Request a quote' };
+const navButton = { href: 'https://github.com/manulthanura/Positivus', label: 'Join Beta Testing' };
 ---
 
 <div class="mt-20">
@@ -18,7 +18,8 @@ const navButton = { href: 'https://github.com/manulthanura/Positivus', label: 'R
       <Astronav>
         <div class="flex w-full lg:w-auto items-center justify-between">
           <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="/Logo.svg" class="h-8" alt="Logo" />
+            <img src="/Logo.svg" class="h-20" alt="Logo" />
+            <span class="text-4xl font-medium">RideSense</span>
           </a>
           <div class="block lg:hidden">
             <div id="menu-icon" class="w-8 h-8 text-black cursor-pointer">
@@ -49,7 +50,7 @@ const navButton = { href: 'https://github.com/manulthanura/Positivus', label: 'R
             ))}
             <div class="lg:hidden flex items-center justify-center mt-3 gap-4">
               <a 
-                class="mobile-nav-link px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" 
+                class="mobile-nav-link px-9 py-5 rounded-2xl border border-[#1557E7] bg-[#1557E7] hover:bg-[#4178eb] active:bg-white active:text-[#1557E7] text-white inline-flex transition-colors duration-300" 
                 href={navButton.href}
                 data-close-menu="true"
               >
@@ -62,7 +63,7 @@ const navButton = { href: 'https://github.com/manulthanura/Positivus', label: 'R
 
       <div>
         <div class="hidden lg:flex items-center gap-4">
-          <a class="px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" href={navButton.href}>
+          <a class="px-9 py-5 rounded-2xl border border-[#1557E7] bg-[#1557E7] hover:bg-[#4178eb] active:bg-white active:text-[#1557E7] text-white inline-flex transition-colors duration-300" href={navButton.href}>
             <h2 class="text-center text-xl font-normal leading-7">{navButton.label}</h2>
           </a>
         </div>
@@ -72,28 +73,24 @@ const navButton = { href: 'https://github.com/manulthanura/Positivus', label: 'R
 </div>
 
 <script is:inline>
-  // Get references to the menu icon, open/close icons, and menu items
+  // Script remains the same
   const menuIcon = document.getElementById('menu-icon');
   const openIcon = document.getElementById('open-icon');
   const closeIcon = document.getElementById('close-icon');
   const menuItems = document.getElementById('menu-items');
-  const closeMenuItems = document.querySelectorAll('[data-close-menu="true"]');  // Select all items with the 'data-close-menu' attribute
+  const closeMenuItems = document.querySelectorAll('[data-close-menu="true"]');
 
-  // Toggle the menu visibility and icon when the menu icon is clicked
   menuIcon.addEventListener('click', () => {
-    menuItems.classList.toggle('hidden');  // Toggle the 'hidden' class on the menu
-
-    // Toggle between open and close icons
+    menuItems.classList.toggle('hidden');
     openIcon.classList.toggle('hidden');
     closeIcon.classList.toggle('hidden');
   });
 
-  // Close the menu when any item is clicked
   closeMenuItems.forEach(item => {
     item.addEventListener('click', () => {
-      menuItems.classList.add('hidden');  // Add the 'hidden' class to hide the menu
-      openIcon.classList.remove('hidden');  // Show the open (hamburger) icon
-      closeIcon.classList.add('hidden');  // Hide the close (X) icon
+      menuItems.classList.add('hidden');
+      openIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
     });
   });
 </script>

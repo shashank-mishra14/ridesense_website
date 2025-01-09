@@ -1,0 +1,106 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Card from "../components/ui/Card.astro";
+---
+
+<MainLayout title="Privacy Policy">
+  <main class="flex justify-center items-center min-h-screen bg-gray-100 p-16">
+    <Card isUnderline={true} class="p-6 sm:p-8 md:p-10 lg:p-12 w-full max-w-4xl">
+      <h1 class="text-3xl font-bold text-center text-gray-900 mb-6 mt-6">Privacy Policy</h1>
+
+      <!-- Introduction -->
+      <section class="p-8">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Introduction</h2>
+        <p class="text-gray-700">
+          Welcome to RideSense! We are committed to protecting your privacy. This Privacy Policy outlines our practices regarding the collection, use, and sharing of your information through the RideSense application, developed by Pallymoto Technologies LLP. By using RideSense, you consent to the data practices described in this policy.
+        </p>
+      </section>
+
+      <!-- Privacy Policies -->
+      <section class="space-y-8 p-8">
+        <!-- Information We Collect -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">Information We Collect</h2>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li><strong>Personal Information:</strong> Includes your name, email address, phone number, and other details provided during account creation.</li>
+            <li><strong>Location Information:</strong> As RideSense provides route planning and tracking functionalities, we collect and use your geographical location data.</li>
+            <li><strong>Photos and Media:</strong> Users can upload photos related to their rides, which may include metadata such as the time, date, and location the photo was taken.</li>
+            <li><strong>Usage and Device Information:</strong> Includes details about how you interact with our services, including the types of content you view or engage with, features you use, actions you take, device information, and crash data.</li>
+          </ul>
+        </div>
+
+        <!-- Cookies and Similar Technologies -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">Cookies and Similar Technologies</h2>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li><strong>Cookies:</strong> We use cookies to enhance your experience, understand user activity, improve the quality of our services, and show personalized advertising. You can manage your cookie preferences.</li>
+            <li><strong>Tracking Technologies:</strong> We use other tracking technologies such as beacons, tags, and scripts to collect and track information, improving and analyzing our service.</li>
+          </ul>
+        </div>
+
+        <!-- How We Use Your Information -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">How We Use Your Information</h2>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li><strong>To Provide Services:</strong> Your information helps us deliver and improve our services, including personalizing features and content.</li>
+            <li><strong>Communication:</strong> We use your information to communicate with you about our services, changes, and inquiries.</li>
+            <li><strong>Safety and Security:</strong> Information is used to improve safety and security, preventing fraud, abuse, and technical issues.</li>
+          </ul>
+        </div>
+
+        <!-- Sharing of Information -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">Sharing of Information</h2>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li><strong>With Service Providers:</strong> Shared with third-party providers for hosting, data analysis, IT, payment processing, and more.</li>
+            <li><strong>Legal and Regulatory Requirements:</strong> We may disclose information to comply with laws or protect rights, property, or safety.</li>
+            <li><strong>Group Sharing:</strong> Location data and routes may be shared within groups you join or create.</li>
+          </ul>
+        </div>
+
+        <!-- Storage and Security -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">Storage and Security of Your Information</h2>
+          <p class="text-gray-700">
+            We use a range of security measures to protect your data from unauthorized access, alteration, disclosure, or destruction. While we take steps to secure your data, no system is impenetrable, and we cannot guarantee total security.
+          </p>
+        </div>
+
+        <!-- User Rights and Choices -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">User Rights and Choices</h2>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li><strong>Access and Update:</strong> Review, correct, update, or delete your information through account settings.</li>
+            <li><strong>Data Retention:</strong> Personal information is retained as long as necessary to provide services or meet legal obligations.</li>
+            <li><strong>Location Information:</strong> Disable location services to stop location data collection, though this may affect app functionality.</li>
+            <li><strong>Marketing Communications:</strong> Opt out of marketing emails using the unsubscribe link in those emails.</li>
+          </ul>
+        </div>
+
+        <!-- International Transfers -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">International Transfers</h2>
+          <p class="text-gray-700">
+            Your information may be transferred to countries outside your residence, with different data protection rules. By using RideSense, you consent to such transfers.
+          </p>
+        </div>
+
+        <!-- Changes to This Privacy Policy -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">Changes to This Privacy Policy</h2>
+          <p class="text-gray-700">
+            We may update this Privacy Policy from time to time. Updated policies will be accessible, and we encourage frequent reviews to stay informed about how we protect your information.
+          </p>
+        </div>
+
+        <!-- Contact Us -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">Contact Us</h2>
+          <p class="text-gray-700">
+            For questions or concerns about your personal information, please contact us at <a href="mailto:help@ridesense.in" class="text-green-500 underline">help@ridesense.in</a>.
+          </p>
+        </div>
+      </section>
+    </Card>
+  </main>
+</MainLayout>

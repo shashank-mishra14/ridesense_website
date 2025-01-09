@@ -1,0 +1,90 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Card from "../components/ui/Card.astro";
+---
+
+<MainLayout title="Terms and Conditions">
+  <main class="flex justify-center items-center min-h-screen bg-gray-100 p-16">
+    <Card isUnderline={true} class="p-6 sm:p-8 md:p-10 lg:p-12 w-full max-w-4xl">
+      <h1 class="text-3xl font-bold text-center text-gray-900 mb-6 mt-6">Terms and Conditions</h1>
+
+      <!-- Introduction -->
+      <section class="p-8">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Introduction</h2>
+        <p class="text-gray-700">
+          Welcome to RideSense, the premier app for motorcycle enthusiasts, developed by Pallymoto Technologies LLP. By accessing and using RideSense, you agree to the following terms and conditions. If you do not agree with any part of these terms, please refrain from using our services.
+        </p>
+      </section>
+
+      <!-- Terms -->
+      <section class="space-y-8 p-8">
+        <!-- 1. Acceptance of Terms -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">1. Acceptance of Terms</h2>
+          <p class="text-gray-700">Your access to and use of RideSense is conditioned upon your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who wish to access or use the Service.</p>
+        </div>
+
+        <!-- 2. User Accounts -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">2. User Accounts</h2>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li><strong>Account Creation:</strong> You must provide accurate, complete, and updated information to create an account.</li>
+            <li><strong>Responsibility:</strong> You are responsible for safeguarding the password and for all activities that occur under your account.</li>
+            <li><strong>Notification:</strong> Notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</li>
+          </ul>
+        </div>
+
+        <!-- 3. Content -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">3. Content</h2>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li><strong>User Content:</strong> You retain all rights to any content you submit, post, or display on or through RideSense. By posting content, you grant RideSense a non-exclusive, royalty-free license to use, copy, reproduce, process, adapt, modify, publish, transmit, display, and distribute such content.</li>
+            <li><strong>Prohibited Content:</strong> You agree not to post, store, or transmit any content that is unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene, or otherwise objectionable.</li>
+          </ul>
+        </div>
+
+        <!-- 4. Rights and Ownership -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">4. Rights and Ownership</h2>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li><strong>Intellectual Property:</strong> RideSense and its original content, features, and functionality are and will remain the exclusive property of RideSense and its licensors.</li>
+            <li><strong>Use License:</strong> You are granted a limited, non-exclusive, non-transferable license to use RideSense solely for your personal, non-commercial purposes.</li>
+          </ul>
+        </div>
+
+        <!-- 5. Limitation of Liability -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">5. Limitation of Liability</h2>
+          <p class="text-gray-700">
+            In no event shall RideSense, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation loss of profits, data, use, goodwill, or other intangible losses.
+          </p>
+        </div>
+
+        <!-- 6. Termination -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">6. Termination</h2>
+          <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li>We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</li>
+            <li>Upon termination, your right to use the Service will cease immediately.</li>
+          </ul>
+        </div>
+
+        <!-- 7. Governing Law -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">7. Governing Law</h2>
+          <p class="text-gray-700">
+            These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions.
+          </p>
+        </div>
+
+        <!-- Contact Us -->
+        <div>
+          <h2 class="text-lg font-semibold text-gray-900 mb-2">Contact Us</h2>
+          <p class="text-gray-700">
+            For any questions about these Terms, please contact us at <a href="mailto:help@ridesense.in" class="text-green-500 underline">help@ridesense.in</a>.
+          </p>
+        </div>
+      </section>
+    </Card>
+  </main>
+</MainLayout>
