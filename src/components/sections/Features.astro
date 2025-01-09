@@ -3,15 +3,14 @@ import SectionTitle from "../ui/SectionTitle.astro";
 import ServiceCard from "../ui/ServiceCard.astro";
 import Section from "./Section.astro";
 
-import c1 from "../../assets/pics/card-pic1.png";
-import c2 from "../../assets/pics/card-pic2.png";
-import c3 from "../../assets/pics/card-pic3.png";
-import c4 from "../../assets/pics/card-pic4.png";
+import c1 from "../../assets/pics/feature-1.jpg";
+import c2 from "../../assets/pics/feature-2.jpg";
+import c3 from "../../assets/pics/feature-3.jpg";
+import c4 from "../../assets/pics/feature-4.jpg";
 
 const sections = [
   {
-    titleTop: "Personalised",
-    titleBottom: "Route Planning",
+    titleTop: "Personalised Route Planning",
     description: [
       "Plan your rides effortlessly in just two minutes.",
       "Discover destinations tailored to your preferences.",
@@ -22,8 +21,7 @@ const sections = [
     alt: "Personalised Route Planning",
   },
   {
-    titleTop: "Seamless",
-    titleBottom: "Group Ride Coordination",
+    titleTop: "Seamless Group Ride Coordination",
     description: [
       "Create comprehensive ride plans in one place.",
       "Add riders and send invites to your friends.",
@@ -34,8 +32,7 @@ const sections = [
     alt: "Group Ride Coordination",
   },
   {
-    titleTop: "Live Location",
-    titleBottom: "Sharing",
+    titleTop: "Live Location Sharing",
     description: [
       "Keep your group connected with real-time location sharing.",
       "Eliminate the worry of members taking wrong turns.",
@@ -46,8 +43,7 @@ const sections = [
     alt: "Live Location Sharing",
   },
   {
-    titleTop: "Ride",
-    titleBottom: "Memories",
+    titleTop: "Ride Memories",
     description: [
       "Maintain a detailed ride log with maps and routes.",
       "Include key statistics for each ride.",
@@ -72,7 +68,6 @@ const description = "Explore our advanced features for effortless ride planning 
           <ServiceCard
             index={1}
             titleTop={section.titleTop}
-            titleBottom={section.titleBottom}
             description={section.description}
           />
 

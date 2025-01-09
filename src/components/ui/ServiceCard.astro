@@ -15,50 +15,57 @@ const { index, titleTop, titleBottom, img, alt, link, children, description } = 
 ---
 
 <Card isUnderline={true}>
-  <div
-    class={`h-auto w-full sm:h-full lg:gap-8 grid custom-grid lg:grid-cols-1 lg:grid-rows-1 p-8 sm:p-[50px] rounded-[45px] ${
-      index === 1 ? "bg-gray" : index === 2 ? "bg-green" : "bg-dark text-gray"
-    }`}
-  >
-    {/* Render Title */}
-    {titleTop && titleBottom && (
-      <div class="flex flex-col col-span-2 lg:col-span-1">
-        <h3>
-          <span class={`block w-[fit-content] ${index === 1 ? "greenhead" : "whitehead"}`}>
-            {titleTop}
-          </span>
-          <span class={`block w-[fit-content] ${index === 1 ? "greenhead" : "whitehead"}`}>
-            {titleBottom}
-          </span>
-        </h3>
+  {/* If it's an image card */}
+  {img ? (
+    <div class="card-container">
+      <Image
+        src={img}
+        alt={alt}
+        class="w-full h-full object-cover rounded-[45px]"
+      />
+    </div>
+  ) : (
+    /* If it's a text card */
+    <div
+      class={`card-container ${
+        index === 1 ? "bg-gray" : index === 2 ? "bg-green" : "bg-dark text-gray"
+      } p-8 sm:p-[50px]`}
+    >
+      {titleTop && (
+        <div class="flex flex-col">
+          <h3>
+            <span class={`block text-2xl text-white ${index === 1 ? "greenhead" : "whitehead"}`}>
+              {titleTop}
+            </span>
+          </h3>
 
-        {/* Render Description as Bullet Points */}
-        {description && (
-          <ul class="list-disc list-inside text-gray-700 mt-4 space-y-2">
-            {description.map((point) => (
-              <li class="text-[16px] leading-[1.5] sm:text-[18px] sm:leading-[1.75]">{point}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-    )}
-
-    {/* Render Image */}
-    {img && (
-      <picture
-        class="w-full h-auto flex justify-center items-center mt-4 lg:mt-0"
-      >
-        <Image
-          src={img}
-          alt={alt}
-          class="h-[100px] w-auto sm:h-auto sm:w-3/4 object-cover"
-        />
-      </picture>
-    )}
-  </div>
+          {description && (
+            <ul class="list-disc list-inside text-gray-700 mt-4 space-y-2">
+              {description.map((point) => (
+                <li class="text-[16px] leading-[1.5] sm:text-[18px] sm:leading-[1.75]">
+                  {point}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+    </div>
+  )}
 </Card>
 
 <style>
+  /* Ensures both text and image cards have the same size */
+  .card-container {
+    width: 100%;
+    height: 300px; /* Set a fixed height for consistency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 45px;
+  }
+
   .custom-grid {
     grid-template: auto auto;
   }
