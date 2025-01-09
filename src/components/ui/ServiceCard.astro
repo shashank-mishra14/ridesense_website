@@ -41,7 +41,7 @@ const { index, titleTop, titleBottom, img, alt, link, children, description } = 
 
           {description && (
             <ul class="list-disc list-inside text-gray-700 mt-4 space-y-2">
-              {description.map((point) => (
+              {description.map((point: string) => (
                 <li class="text-[16px] leading-[1.5] sm:text-[18px] sm:leading-[1.75]">
                   {point}
                 </li>
