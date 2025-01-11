@@ -1,12 +1,21 @@
 ---
+// Hero.astro
 import Section from "./Section.astro";
 import { Image } from "astro:assets";
-import HeroIlust from "../../assets/pics/hero.svg";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-creative';
+
+// Import your specific images
+import c1 from "../../assets/pics/feature-1.jpg";
+import c2 from "../../assets/pics/feature-2.jpg";
+import c3 from "../../assets/pics/feature-3.jpg";
+import c4 from "../../assets/pics/feature-4.jpg";
 ---
 
 <Section id="home">
-    <div class="relative flex flex-col-reverse items-center md:flex-row" id="hero">
-      <div class="row items-center py-5 md:w-6/12 md:pb-20 md:pt-10">
+    <div class="relative flex flex-col-reverse mt-10 items-center md:flex-row" id="hero">
+      <div class="row items-center py-5 px-4 md:px-8 lg:px-12 md:w-6/12 md:pb-20 md:pt-10">
         <div class="text-left space-y-3">
           <h1 class="text-4xl font-medium leading-none md:text-6xl text-center md:text-left">ROUTES, RIDE, <br> RECORD, <br> REMINISCE</h1>
           <p class="mt-6 mb-8 text-2xl font-medium leading-7 sm:mb-12 text-center md:text-left md:pr-12">Your Ultimate Motorcycling Companion.</p>
@@ -16,8 +25,113 @@ import HeroIlust from "../../assets/pics/hero.svg";
           </div>
         </div>
       </div>
-      <div class="flex items-center py-5 md:w-6/12 md:pb-20 md:pt-10">
-        <Image src={HeroIlust} alt="Motorcycle Journey Illustration" loading="eager" />
+      <div class="flex items-center w-full py-5 px-4 md:px-8 lg:px-12 md:w-6/12 md:pb-20 md:pt-10">
+        <div class="swiper w-full">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <Image src={c1} alt="Feature 1" class="w-full h-full object-cover rounded-lg shadow-lg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src={c2} alt="Feature 2" class="w-full h-full object-cover rounded-lg shadow-lg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src={c3} alt="Feature 3" class="w-full h-full object-cover rounded-lg shadow-lg" />
+            </div>
+            <div class="swiper-slide">
+              <Image src={c4} alt="Feature 4" class="w-full h-full object-cover rounded-lg shadow-lg" />
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
       </div>
     </div>
-  </Section>
+</Section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, EffectCreative, Autoplay } from 'swiper/modules';
+
+  new Swiper('.swiper', {
+    modules: [Navigation, EffectCreative, Autoplay],
+    slidesPerView: 1,
+    loop: true,
+    speed: 1000,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    effect: 'creative',
+    creativeEffect: {
+      prev: {
+        shadow: true,
+        translate: ['-20%', 0, -1],
+        rotate: [0, 0, -3],
+      },
+      next: {
+        shadow: true,
+        translate: ['100%', 0, 0],
+        rotate: [0, 0, 3],
+      },
+    },
+    grabCursor: true,
+  });
+</script>
+
+<style>
+  .swiper {
+    width: 100%;
+    aspect-ratio: 4/3;
+    max-height: 500px;
+  }
+  
+  :root {
+    --swiper-theme-color: #1557E7;
+    --swiper-navigation-size: 25px;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    background-color: white;
+    padding: 20px;
+    border-radius: 50%;
+    color: #1557E7 !important;
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+
+  .swiper:hover .swiper-button-next,
+  .swiper:hover .swiper-button-prev {
+    opacity: 1;
+  }
+  
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: #1557E7;
+    color: white !important;
+    transform: scale(1.1);
+  }
+
+  .swiper-slide {
+    transition: all 0.3s ease;
+  }
+
+  .swiper-slide img {
+    transition: transform 0.3s ease;
+  }
+
+  .swiper-slide-active img {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+    .swiper {
+      aspect-ratio: 3/4;
+      max-height: 400px;
+    }
+  }
+</style>
