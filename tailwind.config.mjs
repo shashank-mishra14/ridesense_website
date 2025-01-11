@@ -11,11 +11,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        grotesk: ["Grotesk", "sans-serif"],
+        sans: ['Satoshi', 'Nunito Sans', 'sans-serif'], // Set global sans-serif fonts
       },
       fontWeight: {
         regular: 400,
         medium: 500,
+        bold: 700,
       },
       colors: {
         green: "var(--green)",
