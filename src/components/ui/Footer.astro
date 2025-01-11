@@ -3,12 +3,11 @@ import { Image } from "astro:assets";
 import Facebook from "../../assets/facebook.svg";
 import Linkedin from "../../assets/linkedin.svg";
 import Twitter from "../../assets/twitter.svg";
-import Instagram from "../../assets/instagram.svg";
 import PlayStore from "../../assets/playstore.svg";
 import AppStore from "../../assets/appstore.svg";
 import Logo from "../../../public/Logo.svg";
 
-const logos = [
+const socialLinks = [
   { name: "Facebook", src: Facebook, link: "https://facebook.com" },
   { name: "Linkedin", src: Linkedin, link: "https://linkedin.com" },
   { name: "Twitter", src: Twitter, link: "https://twitter.com" },
@@ -16,91 +15,106 @@ const logos = [
   { name: "App Store", src: AppStore, link: "https://www.apple.com/app-store/" },
 ];
 
-const links = [
+const navLinks = [
   { name: "Home", href: "#home" },
-  { name: "Features", href: "#services" },
+  { name: "Features", href: "#features" },
   { name: "FAQs", href: "/faqs" },
   { name: "Contact", href: "#contact" },
+];
+
+const legalLinks = [
+  { name: "Terms and Conditions", href: "/tnc" },
+  { name: "Privacy Policy", href: "/privacypolicy" },
 ];
 ---
 
 <section class="sm:px-5">
   <div class="w-full max-w-[1240px] mx-auto">
-    <div class="px-[15px] bg-dark text-gray py-[55px] lg:px-[60px] sm:rounded-t-[45px]">
+    <div class="px-4 sm:px-[15px] bg-dark text-gray py-8 sm:py-[55px] lg:px-[60px] sm:rounded-t-[45px]">
       <div>
         <!-- Header Section -->
-        <div class="flex lg:flex-row gap-7 items-center justify-between">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-7 lg:justify-between">
           <!-- Logo -->
-          <picture>
-            <a href="#home" class="flex items-center gap-3">
-              <Image src={Logo} alt="RideSense Logo" class="h-16 w-auto" />
-              <span class="text-5xl">RideSense</span>
-            </a>
-          </picture>
+          <a href="#home" class="flex items-center gap-3">
+            <Image src={Logo} alt="RideSense Logo" class="h-12 sm:h-16 w-auto" />
+            <span class="text-3xl sm:text-5xl text-white">RideSense</span>
+          </a>
 
           <!-- Navigation Links -->
-          <ul class="flex flex-col sm:flex-row gap-5 text-center">
-            {links.map((link) => (
-              <li>
-                <a class="underline hover:text-green" href={link.href}>
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div class="flex flex-col items-center w-full lg:w-auto">
+            {/* Main Navigation */}
+            <ul class="flex flex-wrap justify-center gap-4 sm:gap-5 mb-4 w-full">
+              {navLinks.map((link) => (
+                <li>
+                  <a 
+                    class="hover:text-green transition-colors text-sm sm:text-base block text-center py-1" 
+                    href={link.href}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {/* Legal Links */}
+            <ul class="flex flex-wrap justify-center gap-4 sm:gap-5 w-full">
+              {legalLinks.map((link) => (
+                <li>
+                  <a 
+                    class="hover:text-green transition-colors text-sm sm:text-base block text-center py-1" 
+                    href={link.href}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <!-- Social Media Icons -->
-          <ul class="flex gap-5">
-            {logos.map((logo) => (
-              <li>
-                <a href={logo.link} target="_blank">
-                  <picture>
-                    <Image src={logo.src} alt={logo.name} class="w-6 h-6" />
-                  </picture>
-                </a>
-              </li>
+          <div class="flex gap-6 flex-wrap justify-center">
+            {socialLinks.map((logo) => (
+              <a 
+                href={logo.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="hover:opacity-80 transition-opacity"
+              >
+                <Image 
+                  src={logo.src} 
+                  alt={logo.name} 
+                  class="w-5 h-5 sm:w-6 sm:h-6" 
+                />
+              </a>
             ))}
-          </ul>
+          </div>
         </div>
 
         <!-- Footer Bottom Section -->
-        <div class="flex flex-col lg:flex-row mt-[66px] gap-10">
+        <div class="mt-12 sm:mt-[66px] pt-12">
           <!-- Contact Information -->
-          <div class="flex flex-col items-center lg:items-start w-full lg:w-[30%]">
-            <h3 class="mb-5 text-center lg:text-left text-2xl text-green">
+          <div class="flex flex-col items-center lg:items-start">
+            <h3 class="mb-5 text-center lg:text-left text-xl sm:text-2xl text-[#0066FF]">
               Contact us
             </h3>
-            <div class="flex flex-col text-center lg:text-left gap-4">
+            <div class="flex flex-col text-center lg:text-left gap-4 text-sm sm:text-base">
               <span>Email: help@ridesense.in</span>
               <span>Reach us on WhatsApp: +91 7975307375</span>
-            </div>
-          </div>
-
-          <!-- Terms, Privacy, and App Store Links -->
-          <div class="flex flex-col items-center lg:items-start w-full lg:w-[70%]">
-            <div class="flex flex-col items-center lg:items-start gap-4">
-              <ul class="flex flex-col sm:flex-row gap-4">
-                <li>
-                  <a class="underline hover:text-green" href="/tnc">
-                    Terms and Conditions
-                  </a>
-                </li>
-                <li>
-                  <a class="underline hover:text-green" href="/privacypolicy">
-                    Privacy Policy
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
 
         <!-- Copyright Section -->
-        <div class="mt-12 pt-8 border-t border-gray-700 flex items-center justify-center gap-4">
-          <Image src={Logo} alt="RideSense Logo" class="h-16 w-auto" />
-          <p class="text-sm">Copyright © 2024 RideSense - All Rights Reserved</p>
+        <div class="mt-12 pt-8 border-t border-gray-700 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Image src={Logo} alt="RideSense Logo" class="h-12 sm:h-16 w-auto" />
+          <p class="text-xs sm:text-sm text-center">Copyright © 2024 RideSense - All Rights Reserved</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .text-green {
+    color: #00D37F;
+  }
+</style>
