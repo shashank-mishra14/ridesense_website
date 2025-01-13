@@ -2,33 +2,33 @@
 import Card from "../ui/Card.astro";
 import Section from "./Section.astro";
 
-import propImg from "../../assets/pics/proposal-pic.png";
+import propImg from "../../assets/pics/feature-2.jpg";
 ---
 
 <Section>
   <Card>
-    <div
-      class="flex bg-[#F8F9FE] rounded-[45px] p-[60px] relative mt-[123px] mb-[163px]"
-    >
-      <div class="w-full md:w-[40%] flex flex-col gap-[26px]">
-        <h2 class="text-3xl font-medium">Ready to hit the road?</h2>
-        <p>
-          Join our beta testing program today and be among the first riders to experience 
-          the future of motorcycle journey planning and community building.
-        </p>
-        <a href="https://forms.gle/cKZhwtwsHWFWuZMs6">
-        <button class="px-8 py-5 bg-[#1557E7] hover:bg-[#4178eb] active:bg-white active:text-[#1557E7] rounded-2xl text-center text-white border-[#1557E7] border transition-colors duration-100 text-xl font-normal">Start your journey</button>
-      </a>
+    <div class="bg-[#F8F9FE] rounded-[24px] p-6 md:p-8 relative my-8 overflow-hidden">
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="w-full md:w-[45%] flex flex-col gap-4">
+          <h2 class="text-2xl font-medium">Ready to hit the road?</h2>
+          <p class="text-gray-700 text-sm">
+            Join our beta testing program today and be among the first riders to experience 
+            the future of motorcycle journey planning and community building.
+          </p>
+          <a href="https://forms.gle/cKZhwtwsHWFWuZMs6">
+            <button class="px-6 py-3 bg-[#1557E7] hover:bg-[#4178eb] active:bg-white active:text-[#1557E7] rounded-xl text-center text-white border-[#1557E7] border transition-colors duration-100 text-base font-normal">
+              Start your journey
+            </button>
+          </a>
+        </div>
+        <div class="w-full md:w-[55%] relative">
+          <img
+            src={propImg.src}
+            alt="Motorcycle journey illustration"
+            class="w-full h-auto object-cover rounded-lg max-h-[300px]"
+          />
+        </div>
       </div>
-      <picture
-        class="hidden md:flex absolute right-[-10%] lg:right-0 top-[-15%] h-[450px] items-center justify-center"
-      >
-        <img
-          src={propImg.src}
-          alt="Motorcycle journey illustration"
-          class="hidden md:flex lg:h-full lg:w-auto"
-        />
-      </picture>
     </div>
   </Card>
 </Section>
