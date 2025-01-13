@@ -15,38 +15,30 @@ import c4 from "../../assets/pics/feature-4.jpg";
 
 <Section id="home">
     <div class="relative flex flex-col-reverse mt-10 items-center md:flex-row" id="hero">
-      <div class="row items-center py-5 px-4 md:px-8 lg:px-12 md:w-6/12 md:pb-20 md:pt-10">
-        <div class="text-left space-y-3">
-          <h1 class="text-4xl font-medium leading-none md:text-6xl text-center md:text-left">ROUTES, RIDE, <br> RECORD, <br> REMINISCE</h1>
-          <p class="mt-6 mb-8 text-2xl font-medium leading-7 sm:mb-12 text-center md:text-left md:pr-12">Your Ultimate Motorcycling Companion.</p>
-          <p class="mt-6 mb-8 text-lg font-normal leading-7 sm:mb-12 text-center md:text-left md:pr-12">Experience effortless ride planning, dynamic group coordination, and the joy of reliving your adventures—RideSense simplifies every step of your motorcycle journey.</p>
-          <div class="w-full justify-center md:justify-start items-center inline-flex">
-            <a href="#" class="px-8 py-5 bg-[#1557E7] hover:bg-[#4178eb] active:bg-white active:text-[#1557E7] rounded-2xl text-center text-white border-[#1557E7] border transition-colors duration-300 text-xl font-normal leading-7">Start Your Journey Today - Join beta testing</a>
-          </div>
+        <!-- Other Content -->
+        <div class="flex items-center w-full py-5 px-4 md:px-8 lg:px-12 md:w-6/12 md:pb-20 md:pt-10">
+            <div class="swiper w-full">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src={c1.src} alt="Feature 1" class="w-full h-full object-cover rounded-lg shadow-lg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src={c2.src} alt="Feature 2" class="w-full h-full object-cover rounded-lg shadow-lg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src={c3.src} alt="Feature 3" class="w-full h-full object-cover rounded-lg shadow-lg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src={c4.src} alt="Feature 4" class="w-full h-full object-cover rounded-lg shadow-lg" />
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
         </div>
-      </div>
-      <div class="flex items-center w-full py-5 px-4 md:px-8 lg:px-12 md:w-6/12 md:pb-20 md:pt-10">
-        <div class="swiper w-full">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <Image src={c1} alt="Feature 1" class="w-full h-full object-cover rounded-lg shadow-lg" />
-            </div>
-            <div class="swiper-slide">
-              <Image src={c2} alt="Feature 2" class="w-full h-full object-cover rounded-lg shadow-lg" />
-            </div>
-            <div class="swiper-slide">
-              <Image src={c3} alt="Feature 3" class="w-full h-full object-cover rounded-lg shadow-lg" />
-            </div>
-            <div class="swiper-slide">
-              <Image src={c4} alt="Feature 4" class="w-full h-full object-cover rounded-lg shadow-lg" />
-            </div>
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-      </div>
     </div>
 </Section>
+
 
 <script>
   import Swiper from 'swiper';
