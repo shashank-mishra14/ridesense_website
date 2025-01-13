@@ -28,26 +28,30 @@ const { index, titleTop, titleBottom, img, alt, link, children, description } =
   ) : (
     /* If it's a text card */
     <div
-      class={`card-container ${
-        index === 1 ? "bg-gray" : index === 2 ? "bg-green" : "bg-dark text-gray"
-      } p-8 sm:p-[50px]`}
-    >
-      {titleTop && (
-        <div class="flex flex-col">
-          <h3>
-            <span class={`block text-2xl text-white ${index === 1 ? "greenhead" : "whitehead"}`}>
-              {titleTop}
-            </span>
-          </h3>
+  class={`card-container ${
+    index === 1 ? "bg-gray" : index === 2 ? "bg-green" : "bg-dark text-gray"
+  } p-8 sm:p-[50px]`}
+>
+  {titleTop && (
+    <div class="flex flex-col">
+      <h3>
+        <span 
+          class={`inline-block text-2xl text-white ${
+            index === 1 ? "greenhead" : "whitehead"
+          } px-4 py-2 rounded-lg`}
+        >
+          {titleTop}
+        </span>
+      </h3>
 
-          {description && (
-            <p class="text-[16px] leading-[1.5] sm:text-[18px] sm:leading-[1.75] mt-4 text-gray-700">
-              {description}
-            </p>
-          )}
-        </div>
+      {description && (
+        <p class="text-[16px] leading-[1.5] sm:text-[18px] sm:leading-[1.75] mt-4 text-gray-700">
+          {description}
+        </p>
       )}
     </div>
+  )}
+</div>
   )}
 </Card>
 
@@ -60,5 +64,11 @@ const { index, titleTop, titleBottom, img, alt, link, children, description } =
     justify-content: center;
     overflow: hidden;
     border-radius: 45px;
+  }
+
+  .greenhead {
+    background-color: #1557e7; /* or your specific blue color */
+    border-radius: 8px;
+    display: inline-block;
   }
 </style>

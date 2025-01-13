@@ -6,28 +6,16 @@ import decorForm from "../../assets/pics/contact-pic.png";
 <div
   class="flex relative justify-start items-center p-[60px] bg-[#F3F3F3] rounded-[45px] overflow-hidden"
 >
-  <form class="bg-gray sm:p-6 h-full w-full lg:max-w-lg">
-    <div class="flex flex-col sm:flex-row gap-[35px] sm:items-center mb-10">
-      <div class="flex items-center gap-[14px]">
-        <input
-          type="checkbox"
-          id="checkbox1"
-          name="checkbox1"
-          class="form-checkbox text-black"
-        />
-        <label for="checkbox1" class="text-black">Say Hi</label>
-      </div>
-      <div class="flex items-center gap-[14px]">
-        <input
-          type="checkbox"
-          id="checkbox2"
-          name="checkbox2"
-          class="form-checkbox text-black"
-        />
-        <label for="checkbox2" class="flex items-center text-black"
-          >Get a Quote</label
-        >
-      </div>
+  <form id="contactForm" class="bg-gray sm:p-6 h-full w-full lg:max-w-lg">
+    <div class="flex items-center gap-[14px] mb-10">
+      <input
+        type="checkbox"
+        id="checkbox1"
+        name="checkbox1"
+        class="form-checkbox text-black"
+        checked
+      />
+      <label for="checkbox1" class="text-black">Say Hi</label>
     </div>
 
     <div class="mb-4">
@@ -37,6 +25,7 @@ import decorForm from "../../assets/pics/contact-pic.png";
         id="name"
         name="name"
         placeholder="Name"
+        required
         class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
       />
     </div>
@@ -48,6 +37,7 @@ import decorForm from "../../assets/pics/contact-pic.png";
         id="email"
         name="email"
         placeholder="Email"
+        required
         class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
       />
     </div>
@@ -58,6 +48,7 @@ import decorForm from "../../assets/pics/contact-pic.png";
         id="message"
         name="message"
         placeholder="Message"
+        required
         class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
       ></textarea>
     </div>
@@ -68,6 +59,7 @@ import decorForm from "../../assets/pics/contact-pic.png";
     <img src={decorForm.src} alt="decor" />
   </picture>
 </div>
+
 <style>
   .form-checkbox {
     appearance: none;
@@ -98,38 +90,50 @@ import decorForm from "../../assets/pics/contact-pic.png";
     transform: scale(0.6);
   }
 </style>
+
 <script>
-  function formSetup() {
-    var cb1 = document.getElementById("checkbox1") as HTMLInputElement;
-    var cb2 = document.getElementById("checkbox2") as HTMLInputElement;
-    var message = document.getElementById("message") as HTMLInputElement;
+  import emailjs from '@emailjs/browser';
 
-    if (cb1 && cb2) {
-      cb1.checked = true;
+  // Initialize EmailJS with your public key
+  emailjs.init("YOUR_PUBLIC_KEY");
 
-      cb2.addEventListener("change", function () {
-        if (cb2.checked) {
-          cb1.checked = false;
-          message.value =
-            "We're interested in your services! Please contact us";
-        } else {
-          message.value = "";
-          cb1.checked = true;
+  const form = document.getElementById('contactForm');
+  
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = {
+        name: (document.getElementById('name') as HTMLInputElement).value,
+        email: (document.getElementById('email') as HTMLInputElement).value,
+        message: (document.getElementById('message') as HTMLInputElement).value,
+      };
+
+      // Send email using EmailJS
+      emailjs.send(
+        "YOUR_SERVICE_ID", // Email service ID
+        "YOUR_TEMPLATE_ID", // Email template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: "YOUR_TARGET_EMAIL" // The email where you want to receive messages
         }
-      });
-      cb1.addEventListener("change", function () {
-        if (cb1.checked) {
-          cb2.checked = false;
-          message.value = "";
-        } else {
-          cb2.checked = true;
-          message.value =
-            "We're interested in your services! Please contact us";
+      ).then(
+        function(response) {
+          alert("Message sent successfully!");
+          form.reset();
+        },
+        function(error) {
+          alert("Failed to send message. Please try again.");
+          console.error("Error:", error);
         }
-      });
-    }
+      );
+    });
   }
 
-  formSetup();
-  document.addEventListener("astro:after-swap", formSetup);
+  document.addEventListener("astro:after-swap", () => {
+    // Re-attach event listeners if needed after page transitions
+  });
 </script>
