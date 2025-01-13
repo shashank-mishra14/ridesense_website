@@ -19,8 +19,8 @@ const { index, titleTop, titleBottom, img, alt, link, children, description } =
   {/* If it's an image card */}
   {img ? (
     <div class="card-container">
-      <Image
-        src={img}
+      <img
+        src={img.src}
         alt={alt}
         class="w-full h-full object-cover rounded-[45px]"
       />
