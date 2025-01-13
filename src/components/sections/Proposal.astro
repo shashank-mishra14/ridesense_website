@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Card from "../ui/Card.astro";
 import Section from "./Section.astro";
 
@@ -24,8 +23,8 @@ import propImg from "../../assets/pics/proposal-pic.png";
       <picture
         class="hidden md:flex absolute right-[-10%] lg:right-0 top-[-15%] h-[450px] items-center justify-center"
       >
-        <Image
-          src={propImg}
+        <img
+          src={propImg.src}
           alt="Motorcycle journey illustration"
           class="hidden md:flex lg:h-full lg:w-auto"
         />
