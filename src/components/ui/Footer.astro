@@ -8,14 +8,18 @@ import Logo from "../../../public/Logo.svg";
 import { Image } from "astro:assets";
 
 const socialLinks = [
-  { name: "Facebook", src: Facebook, link: "https://facebook.com" },
-  { name: "Linkedin", src: Linkedin, link: "https://linkedin.com" },
-  { name: "Twitter", src: Twitter, link: "https://twitter.com" },
+  // { name: "Facebook", src: Facebook, link: "https://facebook.com" },
+  {
+    name: "Linkedin",
+    src: Linkedin,
+    link: "https://www.linkedin.com/company/ridesense/",
+  },
+  // { name: "Twitter", src: Twitter, link: "https://twitter.com" },
   { name: "Play Store", src: PlayStore, link: "https://play.google.com/store" },
   {
     name: "App Store",
     src: AppStore,
-    link: "https://www.apple.com/app-store/",
+    link: "https://apps.apple.com/app/id6503331534",
   },
 ];
 
@@ -104,7 +108,7 @@ const legalLinks = [
                   <img
                     src={logo.src.src}
                     alt={logo.name}
-                    class="w-5 h-5 sm:w-6 sm:h-6"
+                    class="w-8 h-8 sm:w-10 sm:h-10"
                   />
                 </a>
               </a>
