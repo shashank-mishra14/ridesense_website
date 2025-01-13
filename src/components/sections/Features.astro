@@ -1,36 +1,35 @@
 ---
+// Import required components
 import SectionTitle from "../ui/SectionTitle.astro";
 import ServiceCard from "../ui/ServiceCard.astro";
 import Section from "./Section.astro";
 
-import c1 from "../../assets/pics/feature-1.jpg";
-import c2 from "../../assets/pics/feature-2.jpg";
-import c3 from "../../assets/pics/feature-3.jpg";
-import c4 from "../../assets/pics/feature-4.jpg";
+// Dynamically import images using import.meta.glob
+const images = import.meta.glob("../../assets/pics/*.jpg", { eager: true, as: "url" });
 
 const sections = [
   {
     titleTop: "Personalised Route Planning",
     description: "Plan your rides effortlessly in just two minutes. Discover destinations tailored to your preferences and select routes that match your taste. Enjoy simplified and perfect adventure planning that takes the hassle out of organizing your next journey.",
-    img: c1,
+    img: images["../../assets/pics/feature-1.jpg"],
     alt: "Personalised Route Planning",
   },
   {
     titleTop: "Seamless Group Ride Coordination",
     description: "Create comprehensive ride plans in one central place. Add riders and send invites to your friends with ease. Provide a clear overview of the ride plan and dynamically replan during the ride to adapt to any changes that may arise.",
-    img: c2,
+    img: images["../../assets/pics/feature-2.jpg"],
     alt: "Group Ride Coordination",
   },
   {
     titleTop: "Live Location Sharing",
     description: "Keep your group connected with real-time location sharing throughout the journey. Eliminate the worry of members taking wrong turns and ensure no rider is left behind. Track co-riders as they progress and finish their journey safely.",
-    img: c3,
+    img: images["../../assets/pics/feature-3.jpg"],
     alt: "Live Location Sharing",
   },
   {
     titleTop: "Ride Memories",
     description: "Maintain a detailed ride log complete with maps and routes for every adventure. Include key statistics for each ride and easily share ride photos with your co-riders. Create a collective memory of your adventures that you can look back on.",
-    img: c4,
+    img: images["../../assets/pics/feature-4.jpg"],
     alt: "Ride Memories",
   },
 ];
