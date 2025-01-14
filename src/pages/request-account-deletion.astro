@@ -1,0 +1,25 @@
+---
+import Form from "../components/ui/Form.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import Section from "../components/sections/Section.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Privacy Policy">
+  <main class="flex justify-center items-center min-h-screen bg-gray-100 p-16">
+    <Section id="contact">
+      <div class="mb-[140px] relative flex flex-col gap-6">
+        <!-- Section Title -->
+        <SectionTitle sectionTitle="Request Account Deletion" />
+
+        <!-- Description -->
+        <p class="text-lg text-gray-700 leading-6">
+          You can request to delete your account and all data associated with it easily and directly from within the RideSense app. Additionally, you can also request the same below by sharing the phone number associated with your account and your email ID.
+        </p>
+
+        <!-- Form Component -->
+        <Form />
+      </div>
+    </Section>
+  </main>
+</MainLayout>

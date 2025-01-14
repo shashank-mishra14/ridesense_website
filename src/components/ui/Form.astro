@@ -1,139 +1,116 @@
-<!-- ---
+---
 import { Image } from "astro:assets";
-import decorForm from "../../assets/pics/contact-pic.png";
 ---
 
 <div
-  class="flex relative justify-start items-center p-[60px] bg-[#F3F3F3] rounded-[45px] overflow-hidden"
+  class="flex flex-col justify-center items-center p-8 md:p-12 bg-[#F3F3F3] rounded-lg shadow-md w-full"
 >
-  <form id="contactForm" class="bg-gray sm:p-6 h-full w-full lg:max-w-lg">
-    <div class="flex items-center gap-[14px] mb-10">
-      <input
-        type="checkbox"
-        id="checkbox1"
-        name="checkbox1"
-        class="form-checkbox text-black"
-        checked
-      />
-      <label for="checkbox1" class="text-black">Say Hi</label>
-    </div>
+  <form id="contactForm" class="w-full space-y-6">
 
-    <div class="mb-4">
-      <label for="name" class="block text-black mb-2">Name*</label>
+
+    <div>
+      <label for="name" class="block text-black mb-2 text-lg font-medium"
+        >Name</label
+      >
       <input
         type="text"
         id="name"
         name="name"
-        placeholder="Name"
+        placeholder="Your Name"
         required
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-[#1557E7] focus:outline-none"
       />
     </div>
 
-    <div class="mb-4">
-      <label for="email" class="block text-black mb-2">Email*</label>
+    <div>
+      <label for="email" class="block text-black mb-2 text-lg font-medium"
+        >Email</label
+      >
       <input
         type="email"
         id="email"
         name="email"
-        placeholder="Email"
+        placeholder="Your Email"
         required
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-[#1557E7] focus:outline-none"
       />
     </div>
 
-    <div class="mb-4">
-      <label for="message" class="block text-black mb-2">Message*</label>
+    <div>
+      <label for="phone" class="block text-black mb-2 text-lg font-medium"
+        >Phone Number</label
+      >
+      <input
+        type="number"
+        id="phone"
+        name="phone"
+        placeholder="Your Phone Number"
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-[#1557E7] focus:outline-none"
+      />
+    </div>
+
+    <div>
+      <label for="message" class="block text-black mb-2 text-lg font-medium"
+        >Message</label
+      >
       <textarea
         id="message"
         name="message"
-        placeholder="Message"
+        placeholder="Request for deletion"
         required
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
-      ></textarea>
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-[#1557E7] focus:outline-none"
+        rows="5"></textarea>
+    </div>
+    <div>
+      <label for="message" class="block text-black mb-2 text-lg font-medium"
+        >Other Notes</label
+      >
+      <textarea
+        id="message"
+        name="message"
+        placeholder=""
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-[#1557E7] focus:outline-none"
+        rows="5"></textarea>
     </div>
 
-    <button type="submit" name="submit" class="btn-primary w-full">Send</button>
+    <button
+      type="submit"
+      name="submit"
+      class="w-full bg-[#1557E7] text-white py-3 rounded-lg text-lg font-medium hover:bg-[#4178eb] transition-colors duration-300"
+    >
+      Send
+    </button>
   </form>
-  <picture class="absolute right-[-25%] top-[2%] bottom-[2%] hidden lg:block">
-    <img src={decorForm.src} alt="decor" />
-  </picture>
 </div>
 
 <style>
   .form-checkbox {
     appearance: none;
-    width: 28px;
-    height: 28px;
-    border: 1px solid #000;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #000;
     border-radius: 50%;
     outline: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
   }
 
   .form-checkbox:before {
     content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 60%;
     border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: var(--green);
+    background: #1557e7;
     transform: scale(0);
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.2s ease-in-out;
   }
 
   .form-checkbox:checked:before {
-    transform: scale(0.6);
+    transform: scale(1);
   }
 </style>
-
-<script>
-  import emailjs from '@emailjs/browser';
-
-  // Initialize EmailJS with your public key
-  emailjs.init("YOUR_PUBLIC_KEY");
-
-  const form = document.getElementById('contactForm');
-  
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get form data
-      const formData = {
-        name: (document.getElementById('name') as HTMLInputElement).value,
-        email: (document.getElementById('email') as HTMLInputElement).value,
-        message: (document.getElementById('message') as HTMLInputElement).value,
-      };
-
-      // Send email using EmailJS
-      emailjs.send(
-        "YOUR_SERVICE_ID", // Email service ID
-        "YOUR_TEMPLATE_ID", // Email template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: "YOUR_TARGET_EMAIL" // The email where you want to receive messages
-        }
-      ).then(
-        function(response) {
-          alert("Message sent successfully!");
-          form.reset();
-        },
-        function(error) {
-          alert("Failed to send message. Please try again.");
-          console.error("Error:", error);
-        }
-      );
-    });
-  }
-
-  document.addEventListener("astro:after-swap", () => {
-    // Re-attach event listeners if needed after page transitions
-  });
-</script> -->
