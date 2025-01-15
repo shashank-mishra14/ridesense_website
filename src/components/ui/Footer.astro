@@ -4,7 +4,7 @@ import Linkedin from "../../assets/linkedin.svg";
 import Twitter from "../../assets/twitter.svg";
 import PlayStore from "../../assets/playstore.svg";
 import AppStore from "../../assets/appstore.svg";
-import Logo from "../../../public/Logo.svg";
+import Logo from "../../../public/RideSenseLogo.png";
 import { Image } from "astro:assets";
 
 const socialLinks = [
@@ -50,7 +50,7 @@ const legalLinks = [
           <img
             src={Logo.src}
             alt="RideSense Logo"
-            class="h-12 sm:h-16 w-auto"
+            class="h-12 sm:h-16 w-auto rounded-full p-1"
           />
           <span class="text-3xl sm:text-5xl text-white">RideSense</span>
         </a>
@@ -131,8 +131,11 @@ const legalLinks = [
           >
             <span>Email: help@ridesense.in</span>
             <span class="flex items-center gap-2">
-              Reach us on WhatsApp 
-              <a href="https://wa.me/917975307375" class="inline-flex items-center">
+              Reach us on WhatsApp
+              <a
+                href="https://wa.me/917975307375"
+                class="inline-flex items-center"
+              >
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                   alt="WhatsApp Logo"
@@ -143,7 +146,6 @@ const legalLinks = [
               </a>
               : +91 7975307375
             </span>
-            
           </div>
         </div>
       </div>
@@ -152,7 +154,11 @@ const legalLinks = [
       <div
         class="mt-12 pt-2 border-t border-gray-700 flex flex-col sm:flex-row items-center justify-center gap-4"
       >
-        <img src={Logo.src} alt="RideSense Logo" class="h-12 sm:h-16 w-auto" />
+        <img
+          src={Logo.src}
+          alt="RideSense Logo"
+          class="h-12 sm:h-16 w-auto rounded-full p-1"
+        />
         <p class="text-xs sm:text-sm text-center">
           Copyright © 2024 RideSense - All Rights Reserved
         </p>
