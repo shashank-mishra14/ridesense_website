@@ -1,14 +1,23 @@
 ---
 import Card from "../ui/Card.astro";
 import Section from "./Section.astro";
+import { Image } from "astro:assets";
 
-import propImg from "../../assets/pics/feature-2.jpg";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-creative';
+
+import c1 from "../../assets/pics/feature-1.jpg";
+import c2 from "../../assets/pics/feature-2.jpg";
+import c3 from "../../assets/pics/feature-3.jpg";
+import c4 from "../../assets/pics/feature-4.jpg";
 ---
 
 <Section>
   <Card>
     <div class="bg-[#F8F9FE] rounded-[24px] p-6 md:p-8 relative my-20 overflow-hidden">
       <div class="flex flex-col md:flex-row items-center gap-6">
+        <!-- Text Section -->
         <div class="w-full md:w-[45%] flex flex-col gap-4">
           <h2 class="text-2xl font-medium">Ready to hit the road?</h2>
           <p class="text-gray-700 text-sm">
@@ -21,14 +30,95 @@ import propImg from "../../assets/pics/feature-2.jpg";
             </button>
           </a>
         </div>
+
+        <!-- Carousel Section -->
         <div class="w-full md:w-[55%] relative">
-          <img
-            src={propImg.src}
-            alt="Motorcycle journey illustration"
-            class="w-full h-auto object-cover rounded-lg max-h-[300px]"
-          />
+          <div class="swiper w-full h-auto max-h-[300px] rounded-lg overflow-hidden">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  src={c1.src}
+                  alt="Feature 1"
+                  class="w-full h-[300px] object-cover rounded-lg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src={c2.src}
+                  alt="Feature 2"
+                  class="w-full h-[300px] object-cover rounded-lg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src={c3.src}
+                  alt="Feature 3"
+                  class="w-full h-[300px] object-cover rounded-lg"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src={c4.src}
+                  alt="Feature 4"
+                  class="w-full h-[300px] object-cover rounded-lg"
+                />
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
         </div>
       </div>
     </div>
   </Card>
 </Section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, EffectCreative, Autoplay } from 'swiper/modules';
+
+  new Swiper('.swiper', {
+    modules: [Navigation, EffectCreative, Autoplay],
+    slidesPerView: 1,
+    loop: true,
+    speed: 1500,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    grabCursor: true,
+  });
+</script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 16px;
+    border-radius: 50%;
+    color: white !important;
+    transition: all 0.3s ease;
+    opacity: 0;
+    backdrop-filter: blur(4px);
+  }
+
+  .swiper:hover .swiper-button-next,
+  .swiper:hover .swiper-button-prev {
+    opacity: 1;
+  }
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+  }
+</style>

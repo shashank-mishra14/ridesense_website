@@ -38,7 +38,7 @@ const legalLinks = [
 
 <section class="sm:px-5">
   <div
-    class="px-4 sm:px-[15px] bg-dark text-gray py-8 sm:py-[55px] lg:px-[60px] sm:rounded-t-[45px]"
+    class="px-4 sm:px-[15px] bg-dark text-gray pt-8 sm:pt-[55px] lg:px-[60px] sm:rounded-t-[45px]"
   >
     <div>
       <!-- Header Section -->
@@ -130,14 +130,27 @@ const legalLinks = [
             class="flex flex-col text-center lg:text-left gap-4 text-sm sm:text-base"
           >
             <span>Email: help@ridesense.in</span>
-            <span>Reach us on WhatsApp: +91 7975307375</span>
+            <span class="flex items-center gap-2">
+              Reach us on WhatsApp 
+              <a href="https://wa.me/917975307375" class="inline-flex items-center">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                  alt="WhatsApp Logo"
+                  width="24"
+                  height="24"
+                  class="align-middle"
+                />
+              </a>
+              : +91 7975307375
+            </span>
+            
           </div>
         </div>
       </div>
 
       <!-- Copyright Section -->
       <div
-        class="mt-12 pt-8 border-t border-gray-700 flex flex-col sm:flex-row items-center justify-center gap-4"
+        class="mt-12 pt-2 border-t border-gray-700 flex flex-col sm:flex-row items-center justify-center gap-4"
       >
         <img src={Logo.src} alt="RideSense Logo" class="h-12 sm:h-16 w-auto" />
         <p class="text-xs sm:text-sm text-center">
