@@ -1,21 +1,24 @@
 ---
 import Card from "../ui/Card.astro";
 import Section from "./Section.astro";
-import { Image } from "astro:assets";
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/effect-creative';
 
 import c1 from "../../assets/pics/feature-1.jpg";
 import c2 from "../../assets/pics/feature-2.jpg";
 import c3 from "../../assets/pics/feature-3.jpg";
 import c4 from "../../assets/pics/feature-4.jpg";
+
+// Array of images for easier management
+const images = [
+  { src: c1, alt: "Feature 1" },
+  { src: c2, alt: "Feature 2" },
+  { src: c3, alt: "Feature 3" },
+  { src: c4, alt: "Feature 4" },
+];
 ---
 
 <Section>
   <Card>
-    <div class="bg-[#F8F9FE] rounded-[24px] p-6 md:p-8 relative my-20 overflow-hidden">
+    <div class="bg-[#F8F9FE] rounded-[24px] p-6 md:p-8 relative my-20">
       <div class="flex flex-col md:flex-row items-center gap-6">
         <!-- Text Section -->
         <div class="w-full md:w-[45%] flex flex-col gap-4">
@@ -32,40 +35,19 @@ import c4 from "../../assets/pics/feature-4.jpg";
         </div>
 
         <!-- Carousel Section -->
-        <div class="w-full md:w-[55%] relative">
-          <div class="swiper w-full h-auto max-h-[300px] rounded-lg overflow-hidden">
+        <div class="w-full md:w-[55%]">
+          <div class="swiper h-[300px] rounded-lg">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img
-                  src={c1.src}
-                  alt="Feature 1"
-                  class="w-full h-[300px] object-cover rounded-lg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src={c2.src}
-                  alt="Feature 2"
-                  class="w-full h-[300px] object-cover rounded-lg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src={c3.src}
-                  alt="Feature 3"
-                  class="w-full h-[300px] object-cover rounded-lg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src={c4.src}
-                  alt="Feature 4"
-                  class="w-full h-[300px] object-cover rounded-lg"
-                />
-              </div>
+              {images.map((image) => (
+                <div class="swiper-slide">
+                  <img 
+                    src={image.src.src} 
+                    alt={image.alt}
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              ))}
             </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
           </div>
         </div>
       </div>
@@ -75,50 +57,57 @@ import c4 from "../../assets/pics/feature-4.jpg";
 
 <script>
   import Swiper from 'swiper';
-  import { Navigation, EffectCreative, Autoplay } from 'swiper/modules';
+  import { EffectFade, Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/effect-fade';
 
-  new Swiper('.swiper', {
-    modules: [Navigation, EffectCreative, Autoplay],
-    slidesPerView: 1,
-    loop: true,
-    speed: 1500,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    grabCursor: true,
-  });
+  let swiper: Swiper | null = null;
+
+  function initSwiper() {
+    if (swiper) return;
+    
+    swiper = new Swiper('.swiper', {
+      modules: [EffectFade, Autoplay],
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      loop: true,
+      speed: 800,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+    });
+
+    // // Custom navigation
+    // const prevBtn = document.querySelector('.swiper-prev');
+    // const nextBtn = document.querySelector('.swiper-next');
+
+    // prevBtn?.addEventListener('click', () => {
+    //   swiper?.slidePrev();
+    // });
+
+    // nextBtn?.addEventListener('click', () => {
+    //   swiper?.slideNext();
+    // });
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'complete') {
+    initSwiper();
+  } else {
+    window.addEventListener('load', initSwiper);
+  }
 </script>
 
 <style>
-  .swiper {
-    width: 100%;
-    height: 100%;
+  .swiper-slide {
+    opacity: 0 !important;
+    transition: opacity 0.3s ease;
   }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 16px;
-    border-radius: 50%;
-    color: white !important;
-    transition: all 0.3s ease;
-    opacity: 0;
-    backdrop-filter: blur(4px);
-  }
-
-  .swiper:hover .swiper-button-next,
-  .swiper:hover .swiper-button-prev {
-    opacity: 1;
-  }
-
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-    transform: scale(1.1);
+  
+  .swiper-slide-active {
+    opacity: 1 !important;
   }
 </style>

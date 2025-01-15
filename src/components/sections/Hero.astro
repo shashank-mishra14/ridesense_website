@@ -1,4 +1,5 @@
 ---
+// Import necessary modules
 import Section from "./Section.astro";
 import { Image } from "astro:assets";
 import 'swiper/css';
@@ -38,6 +39,7 @@ import c4 from "../../assets/pics/feature-4.jpg";
                         </div>
                     </div>
                 </div>
+                <!-- Navigation Buttons -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
             </div>
@@ -73,34 +75,37 @@ import c4 from "../../assets/pics/feature-4.jpg";
   import Swiper from 'swiper';
   import { Navigation, EffectCreative, Autoplay } from 'swiper/modules';
 
-  new Swiper('.swiper', {
-    modules: [Navigation, EffectCreative, Autoplay],
-    slidesPerView: 1,
-    loop: true,
-    speed: 1500,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    effect: 'creative',
-    creativeEffect: {
-      prev: {
-        shadow: true,
-        translate: ['-20%', 0, -1],
-        rotate: [0, 0, -3],
+  // Initialize Swiper carousel
+  if (typeof window !== "undefined") {
+    new Swiper('.swiper', {
+      modules: [Navigation, EffectCreative, Autoplay],
+      slidesPerView: 1,
+      loop: true,
+      speed: 1500,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
       },
-      next: {
-        shadow: true,
-        translate: ['100%', 0, 0],
-        rotate: [0, 0, 3],
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
-    },
-    grabCursor: true,
-  });
+      effect: 'creative',
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: ['-20%', 0, -1],
+          rotate: [0, 0, -3],
+        },
+        next: {
+          shadow: true,
+          translate: ['100%', 0, 0],
+          rotate: [0, 0, 3],
+        },
+      },
+      grabCursor: true,
+    });
+  }
 </script>
 
 <style>
@@ -171,4 +176,13 @@ import c4 from "../../assets/pics/feature-4.jpg";
   .text-shadow-sm {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   }
+
+  /* Ensure the images do not get hidden or clipped */
+  .swiper-slide img {
+    object-fit: cover; /* Ensure images cover the entire space */
+    width: 100%;
+    height: 100%;
+  }
+
+  
 </style>
