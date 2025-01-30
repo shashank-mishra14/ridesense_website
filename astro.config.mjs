@@ -8,7 +8,7 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://positivustheme.vercel.app",
+  site: "https://ridesense-website.vercel.app",
   integrations: [tailwind(), image()],
   output: 'server',
   adapter: vercel(),
