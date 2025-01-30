@@ -36,6 +36,7 @@
     --dark: #191a23;
     --gray: #f3f3f3;
     --white: #ffffff;
+    --blue: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
   }
 
   /* @layer base {
