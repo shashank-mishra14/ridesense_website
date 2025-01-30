@@ -1,6 +1,6 @@
 ---
 import SectionTitle from "../ui/SectionTitle.astro";
-import ServiceCard from "../ui/ServiceCard.astro";
+import FeaturesCard from "../ui/FeaturesCard.astro";
 import Section from "./Section.astro";
 
 import c1 from "../../assets/pics/drone.jpg";
@@ -49,12 +49,12 @@ const description = "Explore our features for effortless ride planning and coord
             grid grid-cols-1 gap-10
             lg:hidden
           `}>
-            <ServiceCard
+            <FeaturesCard
               index={2}
               img={section.img}
               alt={section.alt}
             />
-            <ServiceCard
+            <FeaturesCard
               index={1}
               titleTop={section.titleTop}
               description={section.description}
@@ -65,12 +65,12 @@ const description = "Explore our features for effortless ride planning and coord
           <div class="hidden lg:contents">
             {index % 2 === 0 ? (
               <>
-                <ServiceCard
+                <FeaturesCard
                   index={1}
                   titleTop={section.titleTop}
                   description={section.description}
                 />
-                <ServiceCard
+                <FeaturesCard
                   index={2}
                   img={section.img}
                   alt={section.alt}
@@ -78,12 +78,12 @@ const description = "Explore our features for effortless ride planning and coord
               </>
             ) : (
               <>
-                <ServiceCard
+                <FeaturesCard
                   index={2}
                   img={section.img}
                   alt={section.alt}
                 />
-                <ServiceCard
+                <FeaturesCard
                   index={1}
                   titleTop={section.titleTop}
                   description={section.description}
